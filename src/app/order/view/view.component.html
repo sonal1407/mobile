@@ -1,0 +1,28 @@
+<table>
+  <tr>
+    <th> Id </th>
+    <th>CustomerName </th>
+    <th> email </th>
+    <th> password </th>
+    <th> addresss </th>
+    <th> pincode </th>
+    <th> city </th>
+    <th>state </th>
+    <th> customerId </th>
+    <th> orderId</th>
+  </tr>
+  <tr *ngFor="let order of orders">
+    <td> {{order.id}} </td>
+    <td> {{order.info.name}} </td>
+    <td> {{order.info.email}} </td>
+    <td> {{order.info.password}} </td>
+    <td> {{order.info.address}} </td>
+    <td> {{order.info.pincode}} </td>
+    <td> {{order.info.city}} </td>
+    <td> {{order.info.state}} </td>
+    <td> {{order.customer.customerId}} </td>
+    <td> {{order.customer.orderId}} </td>
+    <td><button (click)="onDelete(order.id)">Delete</button></td>
+    <td><button routerLink="/order/edit/{{order.id}}">Edit</button></td>
+  </tr>
+</table>

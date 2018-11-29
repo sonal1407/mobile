@@ -1,0 +1,71 @@
+<form class="form_" [formGroup]="reactiveForm" (ngSubmit)="onSubmit()" novalidate>
+  <h1>Reactive Driven Form</h1>
+  <hr>
+
+  <label>From Station
+    <input list="station" formControlName="fromStation" required />
+  </label>
+  <div *ngIf="reactiveForm.get('fromStation').hasError('required') && reactiveForm.get('fromStation').touched">
+    fromStation is required
+  </div>
+  <datalist id="station">
+    <option value="Valsad">
+    <option value="Vapi">
+    <option value="Anand">
+  </datalist>
+  <br>
+
+  <label>To Station
+    <input list="tostation" formControlName="toStation" required />
+  </label>
+  <div *ngIf="reactiveForm.get('toStation').hasError('required') && reactiveForm.get('toStation').touched">
+    toStation is required
+  </div>
+  <datalist id="station">
+    <option value="Valsad">
+    <option value="Vapi">
+    <option value="Anand">
+  </datalist>
+  <br>
+  <div class="form-group">
+    <label>Date </label>
+
+    <input type="date" formControlName="date" required>
+    <div *ngIf="reactiveForm.get('date').hasError('required') && reactiveForm.get('date').touched">
+      toStation is required
+    </div>
+  </div>
+  <br>
+  <label>Train No </label>
+  <input type="text" formControlName="trainNo" required>
+  <div *ngIf="reactiveForm.get('trainNo').hasError('required') && reactiveForm.get('trainNo').touched">
+    trainNo is required
+  </div>
+  <br>
+  <label>No Of tickets </label>
+  <input type="text" formControlName="noOfTickets" required>
+  <div *ngIf="reactiveForm.get('noOfTickets').hasError('required') && reactiveForm.get('noOfTickets').touched">
+    noOfTickets is required
+  </div>
+  <br>
+
+  <label>Class
+    <input list="class" formControlName="typeOfTicket" required />
+  </label>
+  <div *ngIf="reactiveForm.get('typeOfTicket').hasError('required') && reactiveForm.get('typeOfTicket').touched">
+    noOfTickets is required
+  </div>
+  <datalist id="class">
+    <option value="Ac">
+    <option value="Sl">
+  </datalist>
+  <br>
+  <button type="submit" [disabled]="!reactiveForm.valid">Submit</button>
+
+  <p>
+    {{for}}
+  </p>
+  <p>
+    <!-- return the status of the form -->
+    FormStatus:{{reactiveForm.status}}
+  </p>

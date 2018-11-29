@@ -1,0 +1,28 @@
+<form [formGroup]="editOrderForm" (ngSubmit)="edit(editOrderForm.value)">
+  <div formGroupName="info">
+    
+    <label>name:</label><br>
+    <input type="text" placeholder="id" formControlName="name"><br>
+    <label>Email</label><br>
+    <input type="text" placeholder="email" formControlName="email"><br>
+    <input type="text" placeholder="password" formControlName="password">
+    <br>
+    <input type="text" placeholder="address" formControlName="address">
+    <br>
+    <input type="text" placeholder="pincode" formControlName="pincode">
+    <br>
+    <input type="text" placeholder="city" formControlName="city">                        
+    <br>
+    <input type="text" placeholder="state" formControlName="state">
+    <br>
+  </div>
+  <div formGroupName="customer" *ngIf="editOrderForm.controls.info.valid">
+    <label>CustomerId:</label><br>
+    <input type="text" placeholder="id" formControlName="customerId"><br>
+    <label>CustomerName</label><br>
+    <input type="text" placeholder="id" formControlName="orderId">
+    <br>
+  </div>
+  <button  type="submit" [disabled]=!editOrderForm.valid>Save</button>
+  
+</form>
